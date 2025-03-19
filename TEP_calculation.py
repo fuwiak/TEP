@@ -190,7 +190,7 @@ def main():
     st.write("Введите координаты в формате массива пар `[широта, долгота]`. Пример:")
     st.code("[[55.751244, 37.618423], [55.752, 37.62], [55.75, 37.62]]")
 
-    coords_str = st.text_area("Координаты (list of [lat, lon])", value="", key="coords_str")
+    coords_str = st.text_area("Координаты (list of [lat, lon])", value="", key="coords_str_bis")
     coords_list = []
     polygon_area = 0.0
     if coords_str.strip():
