@@ -255,8 +255,8 @@ def main():
     # Блок 3: Расчёт для жилого дома
     # --------------------------
     st.markdown("## 3) Параметры дома и расчёт ТЭП")
-    building_footprint_area = st.number_input("Площадь застройки (пятно дома), м²", min_value=0.0, step=100.0, value=2000.0)
-    floor_number = st.number_input("Этажность", min_value=1, max_value=50, value=9)
+    building_footprint_area = st.number_input("Площадь застройки (пятно дома), м²", min_value=0.0, step=100.0, value=2000.0, key="building_footprint_area")
+    floor_number = st.number_input("Этажность", min_value=1, max_value=50, value=9, key="floor_number")
     parking_type_options = [
         "только плоскостной",
         "только подземный",
@@ -265,12 +265,12 @@ def main():
         "плоскостной + многоуровневый",
         "плоскостной + многоуровневый + подземный"
     ]
-    parking_type = st.selectbox("Тип паркинга", parking_type_options)
+    parking_type = st.selectbox("Тип паркинга", parking_type_options, key="parking_type")
 
     # Условно считаем, что land_area мы не можем точно получить из lon/lat без проекции, 
     # поэтому позволим вводить "физическую" площадь участка отдельно
     land_area = st.number_input("Площадь участка (м²) — фактическая, а не в градусах", 
-                                min_value=0.0, step=100.0, value=5000.0)
+                                min_value=0.0, step=100.0, value=5000.0, key="land_area")
 
     if st.button("Рассчитать ТЭП (дом)"):
         house_tep = calculate_house_tep(
@@ -320,8 +320,8 @@ def main():
     # Блок 4: Расчёты для детсадов и школ
     # --------------------------
     st.markdown("## 4) Детские сады и школы")
-    separate_kindergarten = st.checkbox("Отдельно стоящий детский сад?")
-    separate_school = st.checkbox("Отдельно стоящая школа?")
+    separate_kindergarten = st.checkbox("Отдельно стоящий детский сад?", key="separate_kindergarten")
+    separate_school = st.checkbox("Отдельно стоящая школа?", key="separate_school" )
 
     if "population" not in st.session_state:
         st.warning("Сначала выполните расчёт ТЭП для дома, чтобы определить население.")
@@ -336,7 +336,7 @@ def main():
                 separate_school=separate_school
             )
             df_social = pd.DataFrame({
-                "Показатель": [
+                "Показатель": [ 
                     "Требуемое число дошкольников (чел.)",
                     "Требуемое число школьников (чел.)",
                     "Площадь детсадов (м²)",
