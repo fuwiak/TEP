@@ -190,7 +190,7 @@ def main():
     st.write("Введите координаты в формате массива пар `[широта, долгота]`. Пример:")
     st.code("[[55.751244, 37.618423], [55.752, 37.62], [55.75, 37.62]]")
 
-    coords_str = st.text_area("Координаты (list of [lat, lon])", value="")
+    coords_str = st.text_area("Координаты (list of [lat, lon])", value="", key="coords_str")
     coords_list = []
     polygon_area = 0.0
     if coords_str.strip():
@@ -613,7 +613,7 @@ def main():
     # Блок 3: Расчёт для жилого дома
     # --------------------------
     st.markdown("## 3) Параметры дома и расчёт ТЭП")
-    building_footprint_area = st.number_input("Площадь застройки (пятно дома), м²", min_value=0.0, step=100.0, value=2000.0)
+    building_footprint_area = st.number_input("Площадь застройки (пятно дома), м²", min_value=0.0, step=100.0, value=2000.0, key="building_footprint_area")
     floor_number = st.number_input("Этажность", min_value=1, max_value=50, value=9)
     parking_type_options = [
         "только плоскостной",
