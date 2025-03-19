@@ -495,49 +495,49 @@ def main():
         normatives["commercial_coeff"] = st.number_input(
             "Коэффициент коммерческой площади (от 1 этажа)",
             value=normatives["commercial_coeff"],
-            min_value=0.0, max_value=1.0, step=0.1
+            min_value=0.0, max_value=1.0, step=0.1, key="commercial_coeff"
         )
         normatives["residential_coeff"] = st.number_input(
             "Коэффициент жилой площади (остальные этажи)",
             value=normatives["residential_coeff"],
-            min_value=0.0, max_value=1.0, step=0.1
+            min_value=0.0, max_value=1.0, step=0.1, key="residential_coeff"
         )
         normatives["parking_space_area"] = st.number_input(
             "Площадь одного машиноместа (плоскостная), м²",
             value=normatives["parking_space_area"],
-            min_value=0.0, step=5.0
+            min_value=0.0, step=5.0, key="parking_space_area"
         )
         normatives["population_per_25m2"] = st.number_input(
             "Численность (чел.) на 1 м² жилья (по умолчанию 1/25)",
             value=normatives["population_per_25m2"],
-            min_value=0.0, step=0.001
+            min_value=0.0, step=0.001, key="population_per_25m2"
         )
         normatives["landscaping_per_person"] = st.number_input(
             "Площадь благоустройства на 1 жителя, м²",
             value=normatives["landscaping_per_person"],
-            min_value=0.0, step=1.0
+            min_value=0.0, step=1.0, key="landscaping_per_person"
         )
 
         st.markdown("#### Параметры для детсадов и школ")
         normatives["kindergarten_ratio"] = st.number_input(
             "Доля дошкольников от населения (0.03 = 3%)",
             value=normatives["kindergarten_ratio"],
-            min_value=0.0, max_value=1.0, step=0.01
+            min_value=0.0, max_value=1.0, step=0.01, key="kindergarten_ratio"
         )
         normatives["school_ratio"] = st.number_input(
             "Доля школьников от населения (0.1 = 10%)",
             value=normatives["school_ratio"],
-            min_value=0.0, max_value=1.0, step=0.01
+            min_value=0.0, max_value=1.0, step=0.01, key="school_ratio"
         )
         normatives["kindergarten_area_per_child"] = st.number_input(
             "Площадь на 1 ребёнка (детсад), м²",
             value=normatives["kindergarten_area_per_child"],
-            min_value=0.0, step=1.0
+            min_value=0.0, step=1.0, key="kindergarten_area_per_child"
         )
         normatives["school_area_per_student"] = st.number_input(
             "Площадь на 1 ученика (школа), м²",
             value=normatives["school_area_per_student"],
-            min_value=0.0, step=1.0
+            min_value=0.0, step=1.0, key="school_area_per_student"
         )
 
     # --------------------------
